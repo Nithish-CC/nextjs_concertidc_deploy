@@ -7,7 +7,7 @@ import Floaters from "../components/Floaters";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { BiEnvelope } from "react-icons/bi";
-import { homePageAnimation as Homepageanimation } from "../components/Animations/Homeanimation";
+import { HomePageAnimation as Homepageanimation } from "../components/Animations/Homeanimation";
 
 export default function Home({ data }) {
     const { siteHeaderData, homepageData } = data;

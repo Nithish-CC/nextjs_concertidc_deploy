@@ -23,7 +23,7 @@ export default function Service({ data }) {
                                 siteHeaderData.length &&
                                 siteHeaderData.map((nav) => {
                                     return (
-                                        <Nav.Link className={styles.nav}>
+                                        <Nav.Link className={styles.nav} key={`${nav.repoURL.current}`}>
                                             <Link href={`${nav.repoURL.current}`}>
                                                 <a>{nav.title}</a>
                                             </Link>

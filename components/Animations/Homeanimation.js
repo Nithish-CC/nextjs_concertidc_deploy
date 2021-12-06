@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 const isServer = typeof window === "undefined";
 const WOW = !isServer ? require("wow.js") : null;
 
-export const homePageAnimation = () => {
+export const HomePageAnimation = () => {
   return (
     <div>
       {useEffect(() => {
