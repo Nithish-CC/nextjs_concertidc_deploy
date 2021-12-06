@@ -10,10 +10,10 @@ import { BiEnvelope } from "react-icons/bi";
 import { HomePageAnimation as Homepageanimation } from "../components/Animations/Homeanimation";
 
 export default function Home({ data }) {
-    const { siteHeaderData, homepageData } = data;
+    const { siteHeaderData, homepageData,floaterData} = data;
+
     const [nav, setNav] = useState(false);
-    const [str, setStr] = useState("");
-    const [stringSectionOneHeading, setSectionOneHeading] = useState([]);
+
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY >= 80) {
@@ -38,8 +38,7 @@ export default function Home({ data }) {
         document.getElementById("mySidebar").style.width = "0";
     }
     // Check your browser console for output
-    console.log({ siteHeaderData, homepageData });
-
+   
     const blueBackgroundImg = {
         "--backgroundImage": `url(${homepageData.background_blue_image.url})`,
     };
@@ -255,7 +254,7 @@ export default function Home({ data }) {
                                         return text;
                                     })}</p>
                             </div>
-                            <Floaters />
+                            <Floaters data={floaterData}/>
                             <div className="col-sm-6 col-lg-5  align-self-top" id="contact-form" style={{ zIndex: 13 }}>
                                 <form
                                     name="homeContact"
@@ -462,12 +461,46 @@ const homepageQuery = `*\[_type == "homepage"\][0] {
     }  
 }`;
 
+const floaterQuery = `*\[_type == "floaters"\][0] {
+    float_four{
+        ...asset->
+      },
+      float_micro_four{
+        ...asset->
+      },
+      float_micro_one{
+        ...asset->
+      },
+      float_micro_three{
+        ...asset->
+      },
+      float_micro_two{
+        ...asset->
+      },
+      float_one{
+        ...asset->
+      },
+      float_three{
+        ...asset->
+      },
+      float_two{
+        ...asset->
+      },
+      float_five{
+        ...asset->
+      },
+      "repoURL":repoURL{
+        current
+      },
+      title, 
+}`;
+
 export async function getStaticProps() {
     const homepageData = await client.fetch(homepageQuery);
     const siteHeaderData = await client.fetch(siteHeaderQuery);
+    const floaterData = await client.fetch(floaterQuery);
+    const data = { homepageData, siteHeaderData,floaterData };
 
-    const data = { homepageData, siteHeaderData };
-    console.log(data);
     return {
         props: {
             data,

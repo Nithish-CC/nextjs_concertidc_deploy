@@ -9,7 +9,6 @@ import styles from "../../styles/Home.module.css";
 
 export default function Service({ data }) {
     const { siteHeaderData, homepageData } = data;
-
     // Check your browser console for output
     console.log({ siteHeaderData, homepageData });
     return (

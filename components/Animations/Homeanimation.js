@@ -58,7 +58,7 @@ export const HomePageAnimation = () => {
             trigger: "#the-mountain",
             toggleActions: "play none none reset",
             markers: false,
-            start: "top 20%",
+            start: "top 27%",
             end: "bottom 25%",
             scrub: 0.35,
           },
